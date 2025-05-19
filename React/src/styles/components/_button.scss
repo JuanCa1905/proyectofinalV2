@@ -1,0 +1,15 @@
+// components/_button.scss
+@use '../abstracts/variables' as *;
+
+.button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}

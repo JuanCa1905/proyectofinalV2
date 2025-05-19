@@ -1,0 +1,10 @@
+// components/_card.scss
+@use '../abstracts/variables' as *;
+
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  color: $text-color;
+}
