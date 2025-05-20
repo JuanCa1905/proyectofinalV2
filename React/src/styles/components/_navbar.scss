@@ -3,14 +3,31 @@
 @use '../abstracts/mixins' as *;
 
 .navbar {
-  background-color: $primary-color;
-  padding: 1rem;
-  color: white;
-  @include flex-center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  ul {
-    list-style: none;
+  &__container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 1rem 10rem;
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    gap: 3rem;
+
+    a {
+      color: #226d39;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

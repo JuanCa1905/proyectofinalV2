@@ -7,7 +7,7 @@ export async function diagnosticarEnfermedad(imagen) {
     const response = await fetch("https://api.plant.id/v2/health_assessment", {
       method: "POST",
       headers: {
-        "Api-Key": "TU_API_KEY", // Reemplaza con tu API key real
+        "Api-Key": "TU_API_KEY", 
       },
       body: formData,
     });

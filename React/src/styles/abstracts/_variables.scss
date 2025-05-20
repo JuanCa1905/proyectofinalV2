@@ -1,4 +1,35 @@
 // abstracts/_variables.scss
-$primary-color: #4CAF50;
-$text-color: #333;
+
+$primary-color: #22b73d;
+$primary-color-dark: darken($primary-color, 10%);
+$color-secondary: #81C784;
+$color-accent: #eb0404;
+
+$color-text: #333;
+$color-text-light: #2045d6;
+$color-background: #eae4e4;
+$color-white: #ffffff;
+$color-border: #ccc;
+$color-error: #e53935;
+
 $font-main: 'Segoe UI', sans-serif;
+$font-heading: 'Segoe UI', sans-serif;
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.25rem;
+
+
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+$spacing-xl: 4rem;
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);

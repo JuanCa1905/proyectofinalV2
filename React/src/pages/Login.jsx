@@ -1,32 +1,52 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useCallback } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [nombre, setNombre] = useState("");
+  const [error, setError] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    login(nombre);
-    navigate("/"); // O redirige a /diagnostico si prefieres
-  };
+  const handleLogin = useCallback(() => {
+    if (!nombre.trim()) {
+      setError("Por favor, ingresa tu nombre.");
+      return;
+    }
+    setError("");
+    if (login) {
+      login(nombre);
+      navigate("/");
+    } else {
+      setError("Función de login no disponible.");
+    }
+  }, [nombre, login, navigate]);
 
-  const handleGoBack = () => {
+  const handleGoBack = useCallback(() => {
     navigate(-1);
-  };
+  }, [navigate]);
 
   return (
-    <div>
-      <button onClick={handleGoBack}>Regresar</button>
-      <h2>Iniciar sesión</h2>
-      <input
-        type="text"
-        placeholder="Tu nombre"
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-      />
-      <button onClick={handleLogin}>Entrar</button>
+    <div className="login-container">
+      <div className="login-card">
+        <button className="btn-secundario" onClick={handleGoBack}>← Regresar</button>
+        <h2 className="login-title">Iniciar sesión</h2>
+        <input
+          type="text"
+          placeholder="Tu nombre"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              handleLogin();
+            }
+          }}
+          className="login-input"
+        />
+        {error && <p className="login-error">{error}</p>}
+        <button className="btn-principal" onClick={handleLogin}>Entrar</button>
+      </div>
     </div>
   );
 }

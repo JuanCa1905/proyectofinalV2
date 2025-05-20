@@ -1,15 +1,32 @@
 // components/_button.scss
 @use '../abstracts/variables' as *;
 
-.button {
-  background-color: $primary-color;
+.btn-principal {
+  background-color: #69737d;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-principal:hover {
+  background-color: #0056b3;
+}
+
+.btn-secundario {
+  background-color: #6c757d;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 8px 16px;
   cursor: pointer;
+  border-radius: 4px;
+  font-weight: normal;
+  transition: background-color 0.3s ease;
+}
 
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
+.btn-secundario:hover {
+  background-color: #5a6268;
 }

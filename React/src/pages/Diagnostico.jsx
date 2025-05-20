@@ -7,6 +7,7 @@ export default function Diagnostico() {
   const [imagen, setImagen] = useState(null);
   const [resultado, setResultado] = useState(null);
   const [cargando, setCargando] = useState(false);
+  const [error, setError] = useState(null);
 
   const { usuario } = useContext(AuthContext);
 
@@ -15,8 +16,16 @@ export default function Diagnostico() {
   }
 
   const handleAnalyze = async () => {
+    if (!imagen) {
+      setError("Por favor selecciona una imagen.");
+      return;
+    }
+
+    setError(null);
+    setResultado(null);
+    setCargando(true);
+
     try {
-      setCargando(true);
       const data = await diagnosticarEnfermedad(imagen);
       const enfermedad = data.health_assessment.diseases[0];
 
@@ -27,19 +36,34 @@ export default function Diagnostico() {
       });
     } catch (error) {
       console.error(error);
+      setError("Hubo un error al procesar la imagen. Intenta nuevamente.");
     } finally {
       setCargando(false);
     }
   };
 
   return (
-    <div>
+    <div className="diagnostico-container">
       <h1>Diagnóstico de Enfermedades</h1>
-      <input type="file" onChange={(e) => setImagen(e.target.files[0])} />
-      <button onClick={handleAnalyze}>Analizar</button>
-      {cargando && <p>Analizando...</p>}
+
+      <div className="diagnostico-form">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImagen(e.target.files[0])}
+        />
+        <button
+          className="btn-diagnostico"
+          onClick={handleAnalyze}
+          disabled={cargando || !imagen}
+        >
+          {cargando ? 'Analizando...' : 'Analizar'}
+        </button>
+        {error && <p className="error-msg">{error}</p>}
+      </div>
+
       {resultado && (
-        <div>
+        <div className="diagnostico-resultado">
           <h2>{resultado.nombre}</h2>
           <p>{resultado.descripcion}</p>
           <p><strong>Tratamiento:</strong> {resultado.recomendaciones}</p>

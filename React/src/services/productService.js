@@ -6,7 +6,7 @@ export const getProducts = async () => {
       name: 'Helecho',
       description: 'Planta de interior resistente',
       price: 15000,
-      image: 'https://www.jardineriaon.com/wp-content/uploads/2016/09/dicksonia-antarctica-1024x767.jpg',
+      image: 'https://aiph.org/wp-content/uploads/2021/08/Nevada-fern.jpg',
       category: 'interior',
     },
     {
@@ -78,7 +78,7 @@ export const getProducts = async () => {
       name: 'Aloe Vera',
       description: 'Planta medicinal con muchos usos',
       price: 12000,
-      image: 'https://th.bing.com/th/id/R.e09eab04da2a405d48c4d9bc51d9d542?rik=2p1AKEYi%2bVFQAw&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f2083%2f6855%2fproducts%2faloeveranbs_1024x1024.jpg%3fv%3d1606788903&ehk=bM6G%2b7QVYScUbzuTVnZJ0JwI9wbRUX4jio6iZegVSAM%3d&risl=&pid=ImgRaw&r=0',
+      image: 'https://m.media-amazon.com/images/I/81XWpVvk5AL._AC_UF1000,1000_QL80_.jpg',
       category: 'suculentas',
     },
     {
@@ -134,7 +134,7 @@ export const getProducts = async () => {
       name: 'Ficus Lyrata',
       description: 'Popular en decoración de interiores',
       price: 27000,
-      image: 'https://i.pinimg.com/originals/82/92/23/829223f24ca98fc8c7ddc4bcb81b95f4.jpg',
+      image: '',
       category: 'interior',
     },
     {

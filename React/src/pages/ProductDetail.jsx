@@ -1,8 +1,7 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState, useContext } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { getProducts } from '../services/productService';
 import { useCart } from '../context/CartContext';
-import { useNavigate } from 'react-router-dom';
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -21,16 +20,36 @@ export default function ProductDetail() {
     navigate(-1);
   };
 
-  if (!product) return <p>Cargando...</p>;
+  if (!product) {
+    return <p className="product-loading">Cargando producto...</p>;
+  }
 
   return (
-    <div>
-      <button onClick={handleGoBack}>Regresar</button>
-      <h1>{product.name}</h1>
-      <img src={product.image} className="w-60" alt={product.name} />
-      <p>{product.description}</p>
-      <p>Precio: ${product.price}</p>
-      <button onClick={() => addToCart(product)}>Añadir al carrito</button>
+    <div className="product-detail">
+      <div className="product-card-detail">
+        <button className="btn-back" onClick={handleGoBack}>← Regresar</button>
+
+        <div className="product-info">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="product-image"
+          />
+          <div className="product-text">
+            <h1 className="product-title">{product.name}</h1>
+            <p className="product-description">{product.description}</p>
+            <p className="product-price">Precio: ${product.price}</p>
+
+            <button
+              onClick={() => addToCart(product)}
+              className="btn-add"
+            >
+              Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
+

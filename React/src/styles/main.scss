@@ -1,14 +1,337 @@
+// Abstracts
 @use './abstracts/variables' as *;
 @use './abstracts/mixins' as *;
+@use './abstracts/functions' as *;
 
+// Base & Components
 @use './components/navbar';
-@use './components/button';
+@use './components/button'; 
 @use './components/card';
 @use './components/home';
 
-body {
-  font-family: $font-main;
-  background-color: #f9f9f9;
+// Global styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+
+body {
+  font-family:'Times New Roman', Times, serif;
+  background-color: #ffffff;
+  color: $color-text;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Optional: Global utility classes
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+nav {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  a {
+    color: #2f855a; // similar al verde de Tailwind (green-700)
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-group {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  //ESTILOS DE BOTONES PAGINA PRINICIPAL 
+}
+.btn-ver-mas {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4CAF50; // Verde
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #45a049;
+  }
+}
+
+// ESTILOS INICIO DE SESION
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #f5f7fa;
+  padding: 1rem;
+}
+
+.login-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-title {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.login-error {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+// Botón principal (Entrar)
+.btn-principal {
+  background-color: #27ae60;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #219150;
+  }
+}
+
+// Botón secundario (Regresar)
+.btn-secundario {
+  background: none;
+  border: none;
+  color: #3498db;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 1rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ESTILOS PRODUCT DETAIL
+
+.product-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9fafb;
+  min-height: 80vh;
+}
+
+.product-card-detail {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 900px;
+  width: 100%;
+  padding: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-back {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 1rem;
+
+  &:hover {
+    background-color: #cfcfcf;
+  }
+}
+
+.product-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+.product-text {
+  max-width: 500px;
+}
+
+.product-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  color: #27ae60;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.btn-add {
+  background-color: #27ae60;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #219150;
+  }
+}
+
+.product-loading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 4rem;
+  color: #555;
+}
+
+// ESTILOS DIAGNOSTICO 
+
+.diagnostico-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+
+  h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.diagnostico-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  input[type="file"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .btn-diagnostico {
+    background-color: #27ae60;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover:not(:disabled) {
+      background-color: #1e874d;
+    }
+
+    &:disabled {
+      background-color: #b5c5b8;
+      cursor: not-allowed;
+    }
+  }
+
+  .error-msg {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.diagnostico-resultado {
+  margin-top: 2rem;
+  text-align: left;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+
+  h2 {
+    color: #34495e;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 0.8rem;
+    color: #555;
+  }
+
+  strong {
+    color: #2c3e50;
+  }
 }

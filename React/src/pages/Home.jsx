@@ -1,4 +1,4 @@
-import '../styles/main.scss'; // Asegúrate que esté en App.jsx o aquí
+import '../styles/main.scss';
 import { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { getProducts } from '../services/productService';
@@ -28,7 +28,7 @@ export default function Home() {
     <div className="home">
       <Navbar />
 
-      <h1>Tienda de Plantas</h1>
+      <h1 className="titulo">Tienda de Plantas</h1>
 
       <div className="filters">
         <input
@@ -61,3 +61,4 @@ export default function Home() {
     </div>
   );
 }
+
