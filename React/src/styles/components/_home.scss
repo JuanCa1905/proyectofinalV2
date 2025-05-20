@@ -6,14 +6,14 @@
 .home {
   padding: 2rem;
   font-family:'Times New Roman', Times, serif;
-  background-color: #7ce5be;
+  background-color: #E6F4EA;
   min-height: 100vh;
 
   .titulo {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #2e7d32;
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+    color: #000000;
   }
 
   .filters {
@@ -26,7 +26,7 @@
     select {
       padding: 0.5rem 1rem;
       border-radius: 8px;
-      border: 1px solid #ccc;
+      border: 1px solid #0af00a;
       font-size: 1rem;
     }
 
@@ -55,9 +55,9 @@
 
 // Estilos para ProductCard
 .product-card {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(233, 14, 14, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease;
   text-align: center;
@@ -76,19 +76,20 @@
   }
 
   h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #333;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #000000;
   }
 
   p {
-    color: #666;
-    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    font-size: 1.5rem;
   }
   .btn-agregar {
-  background-color: #28a745; // verde
+  background-color: #28a745;
   color: white;
-  border: none;
+  border:#000000;
   padding: 10px 16px;
   border-radius: 8px;
   font-size: 14px;
