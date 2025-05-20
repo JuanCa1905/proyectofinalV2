@@ -134,7 +134,7 @@ export const getProducts = async () => {
       name: 'Ficus Lyrata',
       description: 'Popular en decoración de interiores',
       price: 27000,
-      image: '',
+      image: 'https://mygarden.com.co/wp-content/uploads/2020/05/PLANTA-FICUS-ELASTICA-ROBUSTA-1-.jpg',
       category: 'interior',
     },
     {
@@ -160,6 +160,14 @@ export const getProducts = async () => {
       price: 10000,
       image: 'https://i.redd.it/dqalf0pc3mk11.jpg',
       category: 'suculentas',
+    },
+    {
+      id: 21,
+      name: 'Dalia Pompon Rosa',
+      description: 'Flor decorativa de exterior',
+      price: 13000,
+      image: 'https://www.picturethisai.com/image-handle/website_cmsname/image/1080/154057612206276631.jpeg?x-oss-process=image/format,webp/resize,s_800&v=1.0',
+      category: 'exterior',
     },
   ];
 };
