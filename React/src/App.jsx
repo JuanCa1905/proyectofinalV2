@@ -3,28 +3,26 @@ import Home from "./pages/Home";
 import Diagnostico from "./pages/Diagnostico";
 import Login from "./pages/Login";
 import ProductDetail from "./pages/ProductDetail";
-import Cart from "./pages/Cart"; // Asegúrate de importar Cart
+import Cart from "./pages/Cart";
 import { AuthProvider } from "./context/AuthContext";
-import { CartProvider } from "./context/CartContext"
+import { CartProvider } from "./context/CartContext";
 import './styles/main.scss';
-
-
 
 function App() {
   return (
-    <AuthProvider>  
-      <CartProvider>
-        <Router>
+    <Router>
+      <AuthProvider>
+        <CartProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/diagnostico" element={<Diagnostico />} />
             <Route path="/login" element={<Login />} />
             <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/carrito" element={<Cart />} /> {/* Asegúrate de tener esta ruta */}
+            <Route path="/carrito" element={<Cart />} />
           </Routes>
-        </Router>
-      </CartProvider>
-    </AuthProvider>
+        </CartProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

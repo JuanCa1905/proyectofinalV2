@@ -3,11 +3,12 @@ export async function diagnosticarEnfermedad(imagen) {
     formData.append("images", imagen);
     formData.append("organs", JSON.stringify(["leaf"]));
     formData.append("modifiers", JSON.stringify(["crops_fast", "similar_images"]));
-  
+    formData.append("language", "es");
+    
     const response = await fetch("https://api.plant.id/v2/health_assessment", {
       method: "POST",
       headers: {
-        "Api-Key": "TU_API_KEY", 
+        "Api-Key": "F9PZrlpAJ0ugm9KGXn0ZLhHjTQasBRWzeWdNTUFP6y1AjsalVI", 
       },
       body: formData,
     });

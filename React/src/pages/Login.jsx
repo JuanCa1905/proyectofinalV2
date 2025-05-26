@@ -13,7 +13,7 @@ export default function Login() {
       setError("Por favor, ingresa tu nombre.");
       return;
     }
-    setError("");
+
     if (login) {
       login(nombre);
       navigate("/");
@@ -22,14 +22,16 @@ export default function Login() {
     }
   }, [nombre, login, navigate]);
 
-  const handleGoBack = useCallback(() => {
+  const handleGoBack = () => {
     navigate(-1);
-  }, [navigate]);
+  };
 
   return (
     <div className="login-container">
       <div className="login-card">
-        <button className="btn-secundario" onClick={handleGoBack}>← Regresar</button>
+        <button className="btn-secundario" onClick={handleGoBack}>
+          ← Regresar
+        </button>
         <h2 className="login-title">Iniciar sesión</h2>
         <input
           type="text"
@@ -38,14 +40,15 @@ export default function Login() {
           onChange={(e) => setNombre(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              e.preventDefault();
               handleLogin();
             }
           }}
           className="login-input"
         />
         {error && <p className="login-error">{error}</p>}
-        <button className="btn-principal" onClick={handleLogin}>Entrar</button>
+        <button className="btn-principal" onClick={handleLogin}>
+          Entrar
+        </button>
       </div>
     </div>
   );

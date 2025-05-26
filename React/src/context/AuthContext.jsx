@@ -1,18 +1,30 @@
-import { createContext, useState } from 'react';
-import { v4 as uuid } from 'uuid';
+import { createContext, useState, useEffect } from "react";
 
+// ✅ Exporta el contexto
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
 
+  useEffect(() => {
+    const nombreGuardado = localStorage.getItem("usuario");
+    if (nombreGuardado) {
+      setUsuario(nombreGuardado);
+    }
+  }, []);
+
   const login = (nombre) => {
-    const user = { id: uuid(), nombre };
-    setUsuario(user);
+    setUsuario(nombre);
+    localStorage.setItem("usuario", nombre);
+  };
+
+  const logout = () => {
+    setUsuario(null);
+    localStorage.removeItem("usuario");
   };
 
   return (
-    <AuthContext.Provider value={{ usuario, login }}>
+    <AuthContext.Provider value={{ usuario, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
